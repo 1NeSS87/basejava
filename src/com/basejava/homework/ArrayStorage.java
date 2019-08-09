@@ -15,7 +15,7 @@ public class ArrayStorage {
         if (index != -1) {
             storage[index] = resume;
         } else {
-            System.out.println("Storage is empty");
+            System.out.println("Resume " + resume.getUuid() + "not in storage");
         }
     }
 
@@ -27,7 +27,7 @@ public class ArrayStorage {
             storage[size] = resume;
             size++;
         } else {
-            System.out.println("Resume in storage");
+            System.out.println("Resume is already in storage");
         }
     }
 
@@ -45,7 +45,7 @@ public class ArrayStorage {
         if (index != -1) {
             return storage[index];
         } else {
-            System.out.println("Storage is empty");
+            System.out.println("Resume " + uuid + "not in storage");
         }
         return null;
     }
@@ -57,7 +57,7 @@ public class ArrayStorage {
             storage[size - 1] = null;
             size--;
         } else {
-            System.out.println("Storage is empty");
+            System.out.println("Resume " + uuid + "not in storage");
         }
     }
 
