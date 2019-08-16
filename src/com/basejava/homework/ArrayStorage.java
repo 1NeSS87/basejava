@@ -3,7 +3,7 @@ package com.basejava.homework;
 import java.util.Arrays;
 
 public class ArrayStorage {
-    private Resume[] storage = new Resume[10000];
+    private Resume[] storage = new Resume[10_000];
     private int size = 0;
 
     public int size() {
@@ -31,22 +31,12 @@ public class ArrayStorage {
         }
     }
 
-    private int getIndex(String uuid) {
-        for (int i = 0; i < size; i++) {
-            if (uuid.equals(storage[i].getUuid())) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index != -1) {
             return storage[index];
-        } else {
-            System.out.println("Resume " + uuid + "not in storage");
         }
+        System.out.println("Resume " + uuid + "not in storage");
         return null;
     }
 
@@ -68,6 +58,15 @@ public class ArrayStorage {
     public void clear() {
         Arrays.fill(storage, 0, size, null);
         size = 0;
+    }
+
+    private int getIndex(String uuid) {
+        for (int i = 0; i < size; i++) {
+            if (uuid.equals(storage[i].getUuid())) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
 

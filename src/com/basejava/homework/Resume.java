@@ -2,7 +2,7 @@ package com.basejava.homework;
 
 public class Resume {
 
-    String uuid;
+    private String uuid;
 
     public String getUuid() {
         return uuid;
