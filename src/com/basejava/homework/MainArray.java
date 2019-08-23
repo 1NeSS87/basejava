@@ -1,5 +1,9 @@
 package com.basejava.homework;
 
+import com.basejava.homework.model.Resume;
+import com.basejava.homework.storage.ArrayStorage;
+import com.basejava.homework.storage.Storage;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +13,7 @@ import java.io.InputStreamReader;
  * (just run, no need to understand)
  */
 public class MainArray {
-    private final static ArrayStorage ARRAY_STORAGE = new ArrayStorage();
+    private final static Storage ARRAY_STORAGE = new ArrayStorage();
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -34,8 +38,14 @@ public class MainArray {
                     break;
                 case "save":
                     r = new Resume();
-                    r.uuid = uuid;
+                    r.setUuid(uuid);
                     ARRAY_STORAGE.save(r);
+                    printAll();
+                    break;
+                case "update":
+                    r = new Resume();
+                    r.setUuid(uuid);
+                    ARRAY_STORAGE.update(r);
                     printAll();
                     break;
                 case "delete":
@@ -44,12 +54,6 @@ public class MainArray {
                     break;
                 case "get":
                     System.out.println(ARRAY_STORAGE.get(uuid));
-                    break;
-                case "update":
-                    r = new Resume();
-                    r.setUuid(uuid);
-                    ARRAY_STORAGE.update(r);
-                    printAll();
                     break;
                 case "clear":
                     ARRAY_STORAGE.clear();
@@ -64,7 +68,7 @@ public class MainArray {
         }
     }
 
-    private static void printAll() {
+    static void printAll() {
         Resume[] all = ARRAY_STORAGE.getAll();
         System.out.println("----------------------------");
         if (all.length == 0) {
