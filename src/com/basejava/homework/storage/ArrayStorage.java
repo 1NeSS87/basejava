@@ -5,13 +5,13 @@ import com.basejava.homework.model.Resume;
 public class ArrayStorage extends AbstractArrayStorage {
 
     @Override
-    protected void insertIndex(Resume r, int index) {
-        storage[size] = r;
+    protected void fillDeletedElement(int index) {
+        storage[index] = storage[size - 1];
     }
 
     @Override
-    protected void deleteIndex(int index) {
-        storage[index] = storage[size - 1];
+    protected void insertElement(Resume r, int index) {
+        storage[size] = r;
     }
 
     @Override
@@ -24,6 +24,3 @@ public class ArrayStorage extends AbstractArrayStorage {
         return -1;
     }
 }
-
-
-
