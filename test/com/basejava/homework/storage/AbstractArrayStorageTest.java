@@ -14,7 +14,7 @@ public abstract class AbstractArrayStorageTest {
     private Storage storage;
 
     protected AbstractArrayStorageTest(Storage storage) {
-        this.storage = storage;
+        this.storage = storage;//1
     }
 
     private static final String UUID_1 = "uuid1";
